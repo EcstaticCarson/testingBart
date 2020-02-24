@@ -1,6 +1,6 @@
 export interface Data {
-    station: string;
     name: string;
+    abbr: string;
     city: string;
     county: string;
     state: string;
