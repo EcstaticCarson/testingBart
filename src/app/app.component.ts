@@ -13,10 +13,15 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: '',
+      title: 'Home',
+      url: '/folder/Home',
+      icon: 'home'
+    },
+    {
+      title: 'Example',
       url: '/folder/12TH',
       icon: 'train'
-    }
+    },
   ];
 
   constructor(
@@ -40,4 +45,9 @@ export class AppComponent implements OnInit {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
   }
+  // generateAll() {
+  //   for (this.appPages) {
+
+  //   }
+  // }
 }
