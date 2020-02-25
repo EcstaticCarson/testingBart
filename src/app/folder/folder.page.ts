@@ -10,7 +10,6 @@ import { DataService } from '../service/data.service';
 export class FolderPage implements OnInit {
   public folder: string;
   bartURL = 'http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y';
-  scheduleURL = 'http://api.bart.gov/api/etd.aspx?cmd=etd&orig=RICH&key=MW9S-E7SL-26DU-VV8V&json=y';
   myKey = 'ZGR9-5QQ2-9W8T-DWE9';
 
 
@@ -18,12 +17,14 @@ export class FolderPage implements OnInit {
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+    const scheduleURL = `http://api.bart.gov/api/etd.aspx?cmd=etd&orig=${this.folder}&key=MW9S-E7SL-26DU-VV8V&json=y`;
+    console.log(scheduleURL);
     this.dataS.getURL(this.bartURL).subscribe(
       x => {
        // console.log(x);
       }
     );
-    this.dataS.getURL(this.scheduleURL).subscribe(
+    this.dataS.getURL(scheduleURL).subscribe(
       x => {
        // console.log(x);
       }

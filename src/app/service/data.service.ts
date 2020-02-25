@@ -14,6 +14,7 @@ export class DataService {
   private stationList;
   private departList;
   private data: Data[] = [];
+  private station;
 
   constructor(private http: HttpClient) {
     this.parseData();
@@ -37,13 +38,11 @@ export class DataService {
         for (const s of x.root.stations.station) {
           const info: Data = {
             name: s.name,
-            url: '',
+            url: '/folder/' + s.abbr,
             abbr: s.abbr,
             city: s.city,
             county: s.county,
             state: s.state,
-            zipCode: s.zipCode,
-            address: s.address,
           };
           this.data.push(info);
         }
@@ -55,11 +54,16 @@ export class DataService {
     this.departList = this.http.get<any>(this.scheduleURL);
     console.log(this.departList.subscribe(
       d => {
-        console.log(this.scheduleURL);
-        console.log(d);
-        // for (const l of d.root.station) {
-        // const schedule:
-        // };
+        this.station = d.root.station[0];
+        // console.log(this.scheduleURL);
+        console.log(this.station);
+        // for (const l of d.root.station[0].etd) {
+        //   const schedule: Data = {
+        //     minutes: l.minutes,
+        //     direction: l.direction,
+        //   };
+        //   // console.log(schedule);
+        // }
       }
     ));
   }

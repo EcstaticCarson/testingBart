@@ -5,6 +5,6 @@ export interface Data {
     city: string;
     county: string;
     state: string;
-    zipCode: number;
-    address: number;
+   minutes: number;
+   direction: any;
 }
