@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { DataService } from './service/data.service';
 
 @Component({
   selector: 'app-root',
@@ -11,23 +12,15 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
-  public appPages = [
-    {
-      title: 'Home',
-      url: '/folder/Home',
-      icon: 'home'
-    },
-    {
-      title: 'Example',
-      url: '/folder/12TH',
-      icon: 'train'
-    },
-  ];
+  public stationNames = [];
+  public appPages = [];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private dService: DataService
+
   ) {
     this.initializeApp();
   }
@@ -40,14 +33,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.stationNames  = this.dService.getStations();
+    console.log(this.stationNames);
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
   }
-  // generateAll() {
-  //   for (this.appPages) {
-
-  //   }
-  // }
+  generateStuff() {
+    // this.dService.getStations();
+    console.log('appPages is: ' + this.stationNames);
+    // console.log(this.dService.getStations());
+  }
 }
