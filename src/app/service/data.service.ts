@@ -40,6 +40,8 @@ export class DataService {
             name: s.name,
             url: '/folder/' + s.abbr,
             abbr: s.abbr,
+            address: s.address,
+            zipcode: s.zipcode,
             city: s.city,
             county: s.county,
             state: s.state,

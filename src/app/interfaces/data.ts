@@ -3,8 +3,10 @@ export interface Data {
     url: string;
     abbr: string;
     city: string;
+    address: string;
     county: string;
     state: string;
+    zipcode: string;
    minutes: number;
    direction: any;
 }

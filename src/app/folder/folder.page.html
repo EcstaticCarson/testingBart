@@ -9,16 +9,27 @@
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ station?.name }}</ion-title>
-      <!-- <ion-label size="large">{{station?.etd  }}</ion-label> -->
-
-    </ion-toolbar>
+    <ion-toolbar></ion-toolbar>
   </ion-header>
 
   <div id="container">
     <img src="../../assets/images/BartPic1.png" alt="" srcset="">
-    <strong class="capitalize">{{station?.name}}</strong>
+    <ion-card>
+          <strong class="capitalize">{{station?.name}}</strong>
+    </ion-card>
+    <ion-card>
+      <ion-card-header color="dark">
+        <ion-card-title>
+          Station Information:
+        </ion-card-title>
+        <ion-card-subtitle>
+          {{stationInfo?.address}},
+          {{stationInfo?.city}}
+          {{stationInfo?.state}}
+          {{stationInfo?.zipcode}}
+        </ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
     <ion-card color = "dark" *ngFor="let d of station?.etd">
       <br>
       <ion-icon color="primary" name="business"></ion-icon>

@@ -1,3 +1,7 @@
+.colorMe{
+  color: white;
+}
+
 ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
@@ -23,7 +27,7 @@ ion-menu.md ion-note {
 }
 
 ion-menu.md ion-list#inbox-list {
-  border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
+  border-bottom: 1px solid var(--ion-color-step-150, white);
 }
 
 ion-menu.md ion-list#inbox-list ion-list-header {
@@ -38,7 +42,7 @@ ion-menu.md ion-list#labels-list ion-list-header {
 
   margin-bottom: 18px;
 
-  color: #757575;
+  color: white;
 
   min-height: 26px;
 }
