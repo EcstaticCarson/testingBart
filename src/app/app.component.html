@@ -8,7 +8,7 @@
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of stationNames; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
-              <ion-icon name="train"></ion-icon>
+              <ion-icon color="primary"name="train"></ion-icon>
               <ion-label>{{ p.name }}</ion-label>
               <!-- <ion-label>{{ p.city }} </ion-label> -->
             </ion-item>

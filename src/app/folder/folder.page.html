@@ -18,12 +18,13 @@
 
   <div id="container">
     <img src="../../assets/images/BartPic1.png" alt="" srcset="">
-    <ion-card *ngFor="let d of station?.etd">
-      <strong class="capitalize">{{station?.name}}</strong>
-      <strong class="capitalize"> or {{ folder }}</strong>
+    <strong class="capitalize">{{station?.name}}</strong>
+    <ion-card color = "dark" *ngFor="let d of station?.etd">
       <br>
+      <ion-icon color="primary" name="business"></ion-icon>
       <ion-label class="capitalize">Destination: {{d.destination}}</ion-label>
       <ion-card-content *ngFor="let e of d.estimate">
+        <ion-icon color="light" name="time"></ion-icon>
         Estimated Depature: {{e.minutes}}
       </ion-card-content>
     </ion-card> 

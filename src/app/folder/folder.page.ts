@@ -19,12 +19,14 @@ export class FolderPage implements OnInit {
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
-    const scheduleURL = `http://api.bart.gov/api/etd.aspx?cmd=etd&orig=${this.folder}&key=MW9S-E7SL-26DU-VV8V&json=y`;
-    this.dataS.getURL(scheduleURL).subscribe(
-      x => {
-        this.station = x.root.station[0];
-      }
-    );
+    if (this.folder !== 'Home') {
+      const scheduleURL = `http://api.bart.gov/api/etd.aspx?cmd=etd&orig=${this.folder}&key=MW9S-E7SL-26DU-VV8V&json=y`;
+      this.dataS.getURL(scheduleURL).subscribe(
+        x => {
+          this.station = x.root.station[0];
+        }
+      );
+    }
   }
 
 }
