@@ -11,6 +11,8 @@ export class FolderPage implements OnInit {
   public folder: string;
   bartURL = 'http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y';
   myKey = 'ZGR9-5QQ2-9W8T-DWE9';
+  private station;
+  private display;
 
 
   constructor(private activatedRoute: ActivatedRoute, private dataS: DataService) { }
@@ -18,15 +20,9 @@ export class FolderPage implements OnInit {
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     const scheduleURL = `http://api.bart.gov/api/etd.aspx?cmd=etd&orig=${this.folder}&key=MW9S-E7SL-26DU-VV8V&json=y`;
-    console.log(scheduleURL);
-    this.dataS.getURL(this.bartURL).subscribe(
-      x => {
-       // console.log(x);
-      }
-    );
     this.dataS.getURL(scheduleURL).subscribe(
       x => {
-       // console.log(x);
+        this.station = x.root.station[0];
       }
     );
   }

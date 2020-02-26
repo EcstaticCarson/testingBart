@@ -18,7 +18,7 @@ export class DataService {
 
   constructor(private http: HttpClient) {
     this.parseData();
-    this.scheduleMe();
+   // this.scheduleMe();
   }
   // console.log(url);
   getURL(mainURL: string): Observable<any> {
@@ -46,24 +46,7 @@ export class DataService {
           };
           this.data.push(info);
         }
-      }
-    ));
-  }
-  // Creating the list of departure/schedule.
-  scheduleMe() {
-    this.departList = this.http.get<any>(this.scheduleURL);
-    console.log(this.departList.subscribe(
-      d => {
-        this.station = d.root.station[0];
-        // console.log(this.scheduleURL);
-        console.log(this.station);
-        // for (const l of d.root.station[0].etd) {
-        //   const schedule: Data = {
-        //     minutes: l.minutes,
-        //     direction: l.direction,
-        //   };
-        //   // console.log(schedule);
-        // }
+        console.log(this.stationList);
       }
     ));
   }
